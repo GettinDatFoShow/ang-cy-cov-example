@@ -61,9 +61,10 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "ang-cy-cov-example:build"
+            "browserTarget": "ang-cy-cov-example:build",
+            "extraWebpackConfig": "./cypress/coverage.webpack.js"
           },
           "configurations": {
             "production": {
@@ -108,10 +109,35 @@
           }
         },
         "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+          "builder": "@briebug/cypress-schematic:cypress",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "ang-cy-cov-example:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ang-cy-cov-example:serve:production"
+            }
+          }
+        },
+        "cypress-run": {
+          "builder": "@briebug/cypress-schematic:cypress",
+          "options": {
             "devServerTarget": "ang-cy-cov-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ang-cy-cov-example:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@briebug/cypress-schematic:cypress",
+          "options": {
+            "devServerTarget": "ang-cy-cov-example:serve",
+            "watch": true,
+            "headless": false
           },
           "configurations": {
             "production": {
@@ -120,6 +146,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ang-cy-cov-example"
 }
