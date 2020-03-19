@@ -1,7 +1,9 @@
-As a front end developer its very easy to get wrapped up in the fine tuning of that perfect web application. If you have multiple people working together, its can sometimes be annoying when someone else's change tends to skew the looks or functionality of your component. There haven't really been any great testing frameworks that test applications visually the way a user does. Not until now at least. 
-Cypress.io is an amazing framework designed for complete top down testing of your application. Written by front end developers, for front end developers. For those of us working in companies though, we may need to still provide a report to show that the coverage of our tests still reach a percentage of the code base. Although, krama/jasmin has this built in, cypress leaves that to us to implement. Here I'll walk you through the easy set up.
+This example can be found on github [ang-cy-cov-example](https://github.com/GettinDatFoShow/ang-cy-cov-example)
 
-**Note: This walk-through is meant for Angular version 8 and above.** 
+As a front end developer it's very easy to get caught up in the fine tuning of that perfect web application. If you have multiple people working together, it can be annoying when someone else's changes tend to skew the looks or functionality of your component. There haven't really been any great testing frameworks that test applications visually the way a user does. Not until now at least...
+[Cypress.io](https://www.cypress.io/) is an amazing framework designed for complete top down testing of your application. Written by front end developers, for front end developers. For those of us working in companies though, we may still need to provide a report that shows the coverage of our tests still reach a percentage of the code base. Since Cypress is designed to work with any front end framework, or none for that matter, they leave this to us to implement. Don't be to worried though.. I'm here to walk you through the easy set up.
+
+>**Note: This walk-through is meant for Angular version 8 and above.** 
 
 First we will start off by generating a fresh new Angular application 
 ```
@@ -18,6 +20,9 @@ Add the schematic as a dependency to your project.
   ng add @briebug/cypress-schematic
 ```
 This will prompt you to remove protractor, answer y
+>**NOTE: if you are following this example from an application that already has cypress installed, you may need to run the above command with --force so that it pushes through the error that is created by the cypress.json already existing**
+>**This command will also override your cypress.json file, just revert those changes and add the following line**
+>**`"supportFile": "cypress/support/index.ts"`**
 
 Open up **cypress/integration/spec.ts** and change 
 ```javascript
@@ -189,7 +194,8 @@ This will also generate an html page for you that looks like this.
 
 Thanks and I really hope this helps you all. 
 Also, check out my npm package for those who are trying to generate reports using mocha/mochawesome report generator here [cy-report-setup-helper](https://www.npmjs.com/package/cy-report-setup-helper)
-Please feel free to connect on linked in for any questions or just to link up. 
+
+Please feel free to connect on linked in for any questions or just to link up!
 [Robert Morris on Linked in](https://www.linkedin.com/in/robert-morris-desu-vet/) 
 follow me on twitter 
 [Robert Morris on Twitter](https://twitter.com/CSsoldierVOIF)
@@ -197,3 +203,6 @@ Github
 [Gettindatfoshow](https://github.com/gettindatfoshow)
 Blogspot
 [CsSoldier](https://cssoldier.blogspot.com/)
+
+
+
